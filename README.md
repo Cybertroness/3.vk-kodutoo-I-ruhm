@@ -1,10 +1,17 @@
-# 3. kodutöö (I rühm) 
-### tähtaeg päev enne 2 nädala möödumist (vastavalt 02.05)
+## Documentation
 
-Tee näidisrakendus, kus demonstreerid [jQuery](https://jquery.com) ja AJAX'i oskusi. 
+Below is the basic setup for caption.js.  For more info, please see [captionjs.com](http://captionjs.com).
 
-## Nõuded
-
-1. Rakendus on üles ehitatud objektorienteeritult (ei pea olema singleton, võib kasutada ka muid JS pattern'e)
-2. AJAX'i päringuga laetakse või salvestatakse andmed serverisse (nt faili, andmebaasi)
-3. On kasutatud jQuery't ja soovitatavalt mõnda jQuery pistikprogrammi (ingl plugin), leitavad [siit](https://www.npmjs.com/browse/keyword/jquery-plugin)
+```js
+$(window).load(function() {
+    $('img.caption').captionjs({
+		'class_name'      : 'captionjs', // Class name for each <figure>
+		'schema'          : true,        // Use schema.org markup (i.e., itemtype, itemprop)
+		'mode'            : 'default',   // default | stacked | animated | hide
+		'debug_mode'      : false,       // Output debug info to the JS console
+		'force_dimensions': true,        // Force the dimensions in case they cannot be detected (e.g., image is not yet painted to viewport)
+		'is_responsive'   : false,       // Ensure the figure and image change size when in responsive layout. Requires a container to control responsiveness!
+		'inherit_styles'  : false        // Have the caption.js container inherit box-model properties from the original image
+	});
+});
+```
