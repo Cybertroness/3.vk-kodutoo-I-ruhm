@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kiisude arvamise mäng</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+		var x = Math.floor((Math.random() * 3) + 1);
+		document.getElementById("demo").innerHTML = 'RNG abil saadud nr oli '+x;
+		if (x==1){
+			$("#1").css('background-image', 'url(1.jpg)');
+			$("#tekstikast1").hide();
+			$("#tekst").load("tekst.txt");
+		}
+		else if (x==2){
+			$("#2").css('background-image', 'url(2.jpg)');
+			$("#tekstikast2").hide();
+			$("#tekst").load("tekst.txt");
+		}
+		else if (x==3){
+			$("#3").css('background-image', 'url(3.jpg)');
+			$("#tekstikast3").hide();
+			$("#tekst").load("tekst.txt");
+		}; 		
+		});
+    });
+
+</script>
+</head>
+<body>
+<p>Tere. Ürita arvata millisesse kasti tekib kiisu pilt!</p>
+<button>Klikka et näha kiisu pilti</button><br><br>
+
+<div id="1" style="width:150px;height:150px;background-color:#f7eff2;border:1px #000000 solid; float:left; margin-right:10px;">
+<p style="margin:0px; padding-top:50px; padding-left: 10px;" id="tekstikast1">Siia tuleb kiisu pilt</p>
+</div>
+<div id="2" style="width:150px;height:150px;background-color:#f7eff2;border:1px #000000 solid; float:left; margin-right:10px;">
+<p style="margin:0px; padding-top:50px; padding-left: 10px" id="tekstikast2">Siia tuleb kiisu pilt</p>
+</div>
+<div id="3" style="width:150px;height:150px;background-color:#f7eff2;border:1px #000000 solid; float:left;">
+<p style="margin:0px; padding-top:50px; padding-left: 10px" id="tekstikast3">Siia tuleb kiisu pilt</p>
+</div>
+<br style="clear:both" />
+<p id="tekst"></p>
+<p style="font-style: italic; font-size:small" id="demo"></p>
+
+</body>
+</html>
