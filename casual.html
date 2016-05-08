@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>Kiisude arvamise mäng</title>
@@ -25,12 +25,21 @@ $(document).ready(function(){
 		}; 		
 		});
     });
-
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("siiaajax").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "info2.txt", true);
+  xhttp.send();
+}
 </script>
 </head>
 <body>
 <p>Tere. Ürita arvata millisesse kasti tekib kiisu pilt!</p>
-<button>Klikka et näha kiisu pilti</button><br><br>
+<button onclick="loadDoc()">Klikka et näha kiisu pilti</button><br><br>
 
 <div id="1" style="width:150px;height:150px;background-color:#f7eff2;border:1px #000000 solid; float:left; margin-right:10px;">
 <p style="margin:0px; padding-top:50px; padding-left: 10px;" id="tekstikast1">Siia tuleb kiisu pilt</p>
@@ -44,6 +53,7 @@ $(document).ready(function(){
 <br style="clear:both" />
 <p id="tekst"></p>
 <p style="font-style: italic; font-size:small" id="demo"></p>
+<div id="siiaajax"></div>
 
 </body>
 </html>
