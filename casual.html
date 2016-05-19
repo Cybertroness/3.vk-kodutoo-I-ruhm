@@ -26,14 +26,9 @@ $(document).ready(function(){
 		});
     });
 function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      document.getElementById("siiaajax").innerHTML = xhttp.responseText;
-    }
-  };
-  xhttp.open("GET", "info2.txt", true);
-  xhttp.send();
+	$.ajax({url: "info2.txt", success: function(result){
+        $("#siiaajax").html(result);
+    }});
 }
 </script>
 </head>
